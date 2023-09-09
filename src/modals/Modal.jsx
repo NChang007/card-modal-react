@@ -1,6 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+
+// varient Ideas 
+// Clean : for minimal css and no colors
+// Primary : will include primary color
+// Secondary : will include secondary color
+// Hazard : for the red or something went wrong
+// Caution : for the warning colors so yellow
+// Light / Dark : for general color schemes 
+// Success : for a successfull message or just a green color 
+
 const toggleModal = (id) => {
     let modalroot = document.getElementById('modalRoot'+ id)
     modalroot.classList.toggle('d-none')
@@ -55,7 +65,6 @@ const ModalFooter = ({children}) => {
     )
 }
 const ModalClose = ({id, variant}) => {
-
     return (
         <button 
             aria-label='close-modal'
@@ -65,6 +74,7 @@ const ModalClose = ({id, variant}) => {
         </button>
     )
 }
+
 ModalClose.defaultProps = {
     id : "example",
     variant: "clean"
@@ -73,8 +83,9 @@ ModalClose.propTypes = {
     id : PropTypes.string,
     variant : PropTypes.string
 }
-
-const Modal = ({children, id}) => {
+// Must be passed a id or will default to "example" 
+// if you have more than one you need to have different id
+const Modal = ({children, id, width}) => {
     return (
       <>  
           {/* 
@@ -85,12 +96,27 @@ const Modal = ({children, id}) => {
             className='modal-root d-none' 
             id={'modalRoot'+ id}
             onClick={() => toggleModal(id)}
+            style={{
+                inset: '0',
+                display: 'flex',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                overflow: 'hidden',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
           >
             <div 
               aria-label='modal'
               role={'modal'}
               className='modal' 
               onClick={(e) => modalClick(e)}
+              style={{
+                width: `${width}`,
+                backgroundColor: '#fff',
+                color: '#242424',
+                padding: '0.5rem',
+                borderRadius: '0.356rem'
+              }}
             >
                 {children}
             </div>
@@ -101,10 +127,12 @@ const Modal = ({children, id}) => {
     )
 }
 Modal.defaultProps = {
-    id : 'example'
+    id : 'example',
+    width : '600px'
 }
 Modal.propTypes ={
-    id : PropTypes.string
+    id : PropTypes.string,
+    width : PropTypes.string
 }
 
 
