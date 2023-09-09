@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 
 const CardModal = (props) => {
     // toggleModal is how we open and close the modal 
-    const toggleModal = (idx) => {
-      let modalroot = document.getElementById(`card${idx}ModalRoot`)
+    const toggleModal = (id) => {
+      let modalroot = document.getElementById(`card${id}ModalRoot`)
       modalroot.classList.toggle('d-none')
     }
     // this is how the modal does not close when you click in it 
@@ -20,11 +20,10 @@ const CardModal = (props) => {
             <div 
               className='openModalDiv' 
               role={'open-modal'}
-              data-toggle='modal' 
-              data-target={'card'+ props.idx + 'ModalRoot'}
-              onClick={() => toggleModal(props.idx)}
+              data-toggle='modal'
+              onClick={() => toggleModal(props.MU_ID)}
             >
-                <h5>{props.item.name}</h5>
+                <h5>{props.item.title}</h5>
                 <img src={props.item.img} alt='some image'/>
             </div>
         </div>
@@ -34,8 +33,8 @@ const CardModal = (props) => {
         */}
         <div 
           className='modal-root d-none' 
-          id={'card'+ props.idx + 'ModalRoot'}
-          onClick={() => toggleModal(props.idx)}
+          id={'card'+ props.MU_ID + 'ModalRoot'}
+          onClick={() => toggleModal(props.MU_ID)}
         >
           <div 
             aria-label='modal'
@@ -47,7 +46,7 @@ const CardModal = (props) => {
                   <p><b>{props.item.title}</b></p>
                   <button 
                     aria-label='close-modal'
-                    onClick={() => toggleModal(props.idx)}
+                    onClick={() => toggleModal(props.MU_ID)}
                   >
                       X
                   </button>

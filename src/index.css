@@ -57,8 +57,9 @@
   height: 30px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   border-bottom: 1px solid #584e4e;
+  position: relative;
 }
 .modal-header button {
   background-color: transparent;
@@ -67,13 +68,15 @@
   transform: scaleX(1.2);
   border: none;
   color: #6d6b6b;
+  position: absolute;
+  right: 5px
 }
 .modal-header button:is(:hover, :active) {
   color:#242424;
   cursor: pointer;
 }
 .modal-footer {
-  border-top: 1px solid #584e4e;
+  border-top: 1px solid #4d4c4cc0;
   padding: 0.2rem;
   display: flex;
   justify-content: center;

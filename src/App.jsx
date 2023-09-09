@@ -8,11 +8,11 @@ function App() {
       "img":"https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
-      "title":"First Title",
+      "title":"Second Title",
       "img":"https://images.pexels.com/photos/4215102/pexels-photo-4215102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
-      "title":"First Title",
+      "title":"Third Title",
       "img":"https://images.pexels.com/photos/7919366/pexels-photo-7919366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
   ]
@@ -20,7 +20,7 @@ function App() {
     <div className='card-container'>
         {data.map((item,idx) => {
             return (
-                <CardModal item={item} key={idx} idx={idx} />
+                <CardModal item={item} key={idx} MU_ID={idx} />
                 // unique card ID Must be sent 
             )
         })}
