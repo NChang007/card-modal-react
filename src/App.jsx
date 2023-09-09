@@ -1,5 +1,6 @@
 import React from 'react'
 import CardModal from './CardModal'
+import { Modal, ModalTrigger } from './modals/Modal'
 
 function App() {
   let data = [
@@ -18,6 +19,21 @@ function App() {
   ]
   return (
     <div className='card-container'>
+      <ModalTrigger>
+        <button>openModal BTN</button>
+      </ModalTrigger>
+      <Modal>
+        <Modal.Header>
+          <h3>BIG TITLE</h3>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magnam aut blanditiis consectetur itaque cum similique minus saepe dolor earum vero voluptates, in ullam expedita ducimus nam temporibus vel maiores!</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Modal.Close />
+        </Modal.Footer>
+      </Modal>
+
         {data.map((item,idx) => {
             return (
                 <CardModal item={item} key={idx} MU_ID={idx} />
