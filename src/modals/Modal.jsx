@@ -64,24 +64,26 @@ const ModalFooter = ({children}) => {
         </div>
     )
 }
-const ModalClose = ({id, variant}) => {
+const ModalClose = ({id, variant, innerText}) => {
     return (
         <button 
+            className={variant}
             aria-label='close-modal'
             onClick={() => toggleModal(id)}
         >
-            X
+            {innerText}
         </button>
     )
 }
-
 ModalClose.defaultProps = {
     id : "example",
-    variant: "clean"
+    variant : "clean",
+    innerText : 'x'
 }
 ModalClose.propTypes = {
     id : PropTypes.string,
-    variant : PropTypes.string
+    variant : PropTypes.string,
+    innerText : PropTypes.string
 }
 // Must be passed a id or will default to "example" 
 // if you have more than one you need to have different id
